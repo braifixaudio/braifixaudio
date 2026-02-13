@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRAIFIX AUDIO | Resonance Frequency</title>
     <style>
-        /* --- ESTETIKA IR STRUKTŪRA --- */
+        /* --- CORE SYSTEM AESTHETICS --- */
         :root {
             --gold: #FFD700;
             --dark: #050505;
             --glass: rgba(255, 255, 255, 0.05);
+            --text-gray: #b0b0b0;
         }
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', Courier, monospace; /* Hakeriškas/Techno šriftas */
+            font-family: 'Courier New', Courier, monospace;
             background-color: var(--dark);
             color: white;
             overflow-x: hidden;
+            line-height: 1.6;
         }
         h1, h2, h3 {
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            margin: 0;
         }
+        a { text-decoration: none; transition: 0.3s; }
         
-        /* --- HERO SEKCIJA (Fonas) --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -32,68 +36,75 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('bg.jpg'); /* Čia tavo nuotrauka */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            padding: 20px;
         }
         
         .hero h1 {
-            font-size: 3rem;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            font-size: 2.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
             border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 600px;
-            line-height: 1.6;
-            margin-top: 20px;
+            color: #ddd;
+            margin-bottom: 40px;
         }
 
         .cta-button {
-            margin-top: 30px;
             padding: 15px 40px;
             background: transparent;
             border: 1px solid var(--gold);
             color: var(--gold);
             font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         .cta-button:hover {
             background: var(--gold);
             color: black;
-            box-shadow: 0 0 15px var(--gold);
+            box-shadow: 0 0 20px var(--gold);
         }
 
-        /* --- APIE (Manifestas) --- */
+        /* --- ABOUT SECTION --- */
         .about {
             padding: 80px 20px;
             background: var(--dark);
             text-align: center;
+        }
+        .section-title {
+            color: var(--gold);
+            margin-bottom: 50px;
+            font-size: 1.5rem;
         }
         .about-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            margin-top: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .feature {
             background: var(--glass);
-            padding: 20px;
-            border-left: 1px solid var(--gold);
+            padding: 30px;
+            border-left: 2px solid var(--gold);
             width: 300px;
             text-align: left;
         }
+        .feature h3 { font-size: 1rem; margin-bottom: 10px; color: var(--gold); }
+        .feature p { font-size: 0.9rem; color: var(--text-gray); }
 
-        /* --- PRODUKTAI (Gumroad) --- */
+        /* --- SHOP SECTION --- */
         .shop {
             padding: 80px 20px;
             background: #0a0a0a;
@@ -104,58 +115,80 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            margin-top: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         .product-card {
             background: #111;
-            border: 1px solid #333;
-            width: 300px;
-            transition: 0.3s;
+            border: 1px solid #222;
+            width: 300px; /* Padidintas plotis */
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s ease;
         }
         .product-card:hover {
             border-color: var(--gold);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
         .product-img {
             width: 100%;
-            height: 300px;
+            height: 300px; /* Kvadratinė nuotrauka */
             object-fit: cover;
-            background: #222; /* Pilkas fonas jei nėra foto */
+            background: #222;
+            border-bottom: 1px solid #222;
         }
         .product-info {
             padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .product-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .product-info p {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 20px;
         }
         .buy-btn {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 15px 0;
             background: var(--gold);
             color: black;
-            text-decoration: none;
+            text-align: center;
             font-weight: bold;
-            margin-top: 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            background: white;
         }
 
         /* --- FOOTER --- */
         footer {
-            padding: 40px;
+            padding: 50px 20px;
             text-align: center;
             background: black;
-            border-top: 1px solid #333;
+            border-top: 1px solid #222;
+            color: #444;
             font-size: 0.8rem;
-            color: #666;
         }
-        .social-link {
-            color: white;
-            font-size: 1.5rem;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+        footer a { color: var(--gold); }
 
-        /* --- MOBILI VERSIJA --- */
-        @media (max-width: 600px) {
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 768px) {
             .hero h1 { font-size: 1.8rem; }
-            .hero p { padding: 0 20px; font-size: 1rem; }
+            .hero p { font-size: 1rem; }
+            .product-card { width: 100%; max-width: 350px; }
         }
     </style>
 </head>
@@ -168,34 +201,34 @@
     </div>
 
     <section class="about">
-        <h2 style="color: var(--gold);">/// SYSTEM OVERVIEW</h2>
+        <h2 class="section-title">/// SYSTEM OVERVIEW</h2>
         <div class="about-grid">
             <div class="feature">
-                <h3 style="color: var(--gold);">01. MANIFESTATION</h3>
+                <h3>01. MANIFESTATION</h3>
                 <p>Tones to focus your intention and attract your goals using quantum resonance.</p>
             </div>
             <div class="feature">
-                <h3 style="color: var(--gold);">02. DEEP MEDITATION</h3>
+                <h3>02. DEEP MEDITATION</h3>
                 <p>Journey inward. Meet your Higher Self. Access intuition beyond logic.</p>
             </div>
             <div class="feature">
-                <h3 style="color: var(--gold);">03. HEALING</h3>
+                <h3>03. HEALING</h3>
                 <p>432Hz and 528Hz frequencies to restore physical and mental architecture.</p>
             </div>
         </div>
     </section>
 
     <section id="shop" class="shop">
-        <h2 style="color: white;">DIGITAL ARSENAL</h2>
-        <p style="color: #888;">High-fidelity soundscapes for deep work & sleep.</p>
+        <h2 class="section-title">DIGITAL ARSENAL</h2>
         
         <div class="product-grid">
+            
             <div class="product-card">
                 <img src="prod1.jpg" alt="Architect Dream" class="product-img"> 
                 <div class="product-info">
                     <h3>The Architect's Dream</h3>
                     <p>Deep Work Audio (WAV/FLAC)</p>
-                    <a href="https://gumroad.com/checkout?product=qoybna&quantity=1&_gl=1*r0u0yg*_ga*NzIxNzI4MjUwLjE3Njk4OTMwODc.*_ga_6LJN6D94N6*czE3NzA5Mzk2MDQkbzQ5JGcxJHQxNzcwOTM5NjkyJGo1NiRsMCRoMA.." class="buy-btn">ACCESS /// £0+</a>
+                    <a href="https://gumroad.com/checkout?product=qoybna" class="buy-btn">ACCESS /// £0+</a>
                 </div>
             </div>
 
@@ -204,7 +237,7 @@
                 <div class="product-info">
                     <h3>Celestial Beacon</h3>
                     <p>Ultimate Deep Focus Sci-Fi</p>
-                    <a href="https://gumroad.com/checkout?product=nddju&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F&_gl=1*rb54eu*_ga*NzIxNzI4MjUwLjE3Njk4OTMwODc.*_ga_6LJN6D94N6*czE3NzA5Mzk2MDQkbzQ5JGcxJHQxNzcwOTQwMDM5JGozOSRsMCRoMA..">ACCESS /// £0+</a>
+                    <a href="https://gumroad.com/checkout?product=nddju" class="buy-btn">ACCESS /// £0+</a>
                 </div>
             </div>
 
@@ -213,17 +246,26 @@
                 <div class="product-info">
                     <h3>639 Hz Heart Chakra</h3>
                     <p>Healing & Emotional Release</p>
-                    <a href="https://gumroad.com/checkout?product=ofxkmj&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F&_gl=1*1egjt15*_ga*NzIxNzI4MjUwLjE3Njk4OTMwODc.*_ga_6LJN6D94N6*czE3NzA5Mzk2MDQkbzQ5JGcxJHQxNzcwOTQwMTczJGo0MSRsMCRoMA.." class="buy-btn">ACCESS /// £0+</a>
+                    <a href="https://gumroad.com/checkout?product=ofxkmj" class="buy-btn">ACCESS /// £0+</a>
                 </div>
             </div>
+
+            <div class="product-card">
+                <img src="prod4.jpg" alt="108Hz Delta Protocol" class="product-img">
+                <div class="product-info">
+                    <h3>The 108Hz Delta Protocol</h3>
+                    <p>Deep Coma Sleep System</p>
+                    <a href="https://gumroad.com/checkout?product=ywppol" class="buy-btn">ACCESS /// £0+</a>
+                </div>
+            </div>
+
         </div>
-        
     </section>
 
     <footer>
         <p>BRAIFIX AUDIO © 2026. ALL RIGHTS RESERVED.</p>
         <p>
-            <a href="https://www.youtube.com/@Danell-G" target="_blank" style="color:var(--gold);">YouTube Channel</a>
+            <a href="https://www.youtube.com/@Danell-G" target="_blank">YouTube Channel</a>
         </p>
     </footer>
 
